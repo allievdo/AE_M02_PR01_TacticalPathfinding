@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FollowPath : Seek
@@ -40,6 +41,7 @@ public class FollowPath : Seek
             if(currentPathIndex > path.Length - 1)
             {
                 currentPathIndex = 0;
+                path = path.Reverse().ToArray();
             }
 
             target = path[currentPathIndex];

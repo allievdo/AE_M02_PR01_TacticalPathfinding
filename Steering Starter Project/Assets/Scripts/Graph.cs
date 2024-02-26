@@ -34,6 +34,13 @@ public class Graph
                 Connection c = new Connection(cost, fromNode, toNode);
                 mConnections.Add(c);
             }
+
+            foreach (Node toNode in fromNode.ConnectsToProd)
+            {
+                float cost = (toNode.transform.position - fromNode.transform.position).magnitude + 50;
+                Connection c = new Connection(cost, fromNode, toNode);
+                mConnections.Add(c);
+            }
         }
     }
 }
